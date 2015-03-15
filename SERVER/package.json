@@ -14,7 +14,10 @@
   "license": "MIT",
   "dependencies": {
     "bcrypt": "^0.8.1",
+    "connect-redis": "^2.2.0",
+    "ejs": "^2.3.1",
     "express": "^4.12.2",
+    "express-session": "^1.10.3",
     "mongodb": "^1.4.34",
     "redis": "^0.12.1"
   }
