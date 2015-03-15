@@ -11,5 +11,11 @@
     "url": "git@github.com:vtch99/Art-Daily.git"
   },
   "author": "Tyan",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^0.8.1",
+    "express": "^4.12.2",
+    "mongodb": "^1.4.34",
+    "redis": "^0.12.1"
+  }
 }
