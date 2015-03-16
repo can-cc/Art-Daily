@@ -26,11 +26,10 @@ Admin.prototype.save = function(callback) {
     })
 }
 
-Admin.prototype.checkExist = function(callback) {
-	var admin_name = this.admin_name
+Admin.checkExist = function(admin_name, callback) {
 	db.hgetall('AD_Admin:' + admin_name, function(err, reply) {
-		if (reply) callback(true)
-		else callback(false)
+            if(err) return callback(err, null)
+            callback(null, reply)
 	});
 };
 
@@ -38,7 +37,7 @@ Admin.checkPasswd = function(admin_name, passwd, callback) {
 	db.hget('AD_Admin:' + admin_name, 'passwd', function(err, reply) {
 		// check passwd from redis, return boolean 
 		bcrypt.compare(passwd, reply, function(err, res) {
-			callback(res);
+		    callback(err, res);
 		})
 	})
 }
@@ -49,6 +48,26 @@ Admin.get = function(admin_name, callback) {
         callback(null, reply)
     })
 }
+
+// Admin.delete = function(admin_name, callback) {
+//     db.hkeys('AD_Admin:' + admin_name, function(err, keys) {
+//         if(err) return callback(err)
+//         console.log(keys)
+//         if(keys) {
+//             var rst = keys.map(function(field) {
+//                 db.hdel('AD_Admin' + admin_name, field, function(err, reply) {
+//                     if(err) return callback(err)
+//                     return reply
+//                 })
+//             }).reduce(function(total, eachn){
+//                 total += eachn
+//             }, 0)
+//             callback(null, rst)
+//         } else {
+//             callback(null, null)
+//         }
+//     })
+// }
 
 
 

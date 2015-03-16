@@ -1,25 +1,15 @@
-var async = require('async')
+var Admin = require('../models/admin')
 
-exports.testAsync = function(test) {
-    async.series([
-        function() {
-            setTimeout(console.log('1'), 3000)
-            test.ok(true, '1 ok')
-        },
-        function() {
-            setTimeout(console.log('2'), 1000)
-            test.ok(true, '2 ok')
-        },
-        function() {
-            setTimeout(console.log('3'), 2000)
-            test.ok(true, '3 ok')
-        },
-        function() {
-            test.done()
-        }
-    ])
-    test.done()
-}
+var admin = new Admin('foo', 'abc123456')
+admin.save(function(err, boolean){
+    
+})
+
+
+
+
+
+
 
 
 
