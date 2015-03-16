@@ -10,8 +10,8 @@ var Admin = function(admin_name, passwd) {
 module.exports = Admin
 
 Admin.prototype.save = function(callback) {
-    var admin_name = this.admin_name;
-    var passwd = this.passwd;
+    var admin_name = this.admin_name
+    var passwd = this.passwd
 
     bcrypt.genSalt(10, function(err, salt) {
 	if(err) return callback(err)
@@ -19,8 +19,9 @@ Admin.prototype.save = function(callback) {
 	    //save into redis
 	    db.hmset('AD_Admin:' + admin_name,
 			   'passwd', hash,
-                           'username', admin_name,
+                           'admin_name', admin_name,
 			   redis.print)
+            callback(null, true)
 	})
     })
 }
