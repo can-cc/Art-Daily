@@ -1,6 +1,6 @@
 var express = require('express'),
     router = express.Router(),
-    Admin = require('./modules/admin')
+    Admin = require('../models/admin')
 
 
 router.get('/', function(req, res) {
@@ -12,14 +12,14 @@ router.get('/panel', function(req, res, next) {
     res.render('panel', {
       admin: req.session.admin
     })
-  } else res.redirect('/login.html')
+  } else res.redirect('/admin/login.html')
 })
 
 
 router.post('/login', function(req, res, next) {
   Admin.checkPasswd(req.body.admin_name, req.body.passwd, function(err, correct) {
     if (correct) {
-      req.session.admin = Admin.get(req.body.admin_name, function(admin) {
+      req.session.admin = Admin.get(req.body.admin_name, function(err, admin) {
         req.session.admin = admin
         res.send({success: 'welcome, login success!'})
       })

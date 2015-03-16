@@ -94,7 +94,7 @@
 
     <div class="form">
 
-      <input type="text" class="Input" id="username" maxlength="14" autofocus placeholder="username"/><br/><br/>
+      <input type="text" class="Input" id="admin_name" maxlength="14" autofocus placeholder="admin_name"/><br/><br/>
       <input type="password" class="Input" id="password" maxlength="14" placeholder="passwords"/><br/><br/>
       <div class="alert-box error"></div>
     </div>
@@ -104,7 +104,7 @@
 
 
 
-    <script src="lib/jquery.js"></script>
+    <script src="/scripts/lib/jquery.js"></script>
 
 
     <script>
@@ -116,14 +116,14 @@
           //event.preventDefault();
           $.ajax({
             type: 'POST',
-            url: '/login',
+            url: '/admin/login',
             data: {
-              username: $('#username').val(),
-              password: $('#password').val()
+              admin_name: $('#admin_name').val(),
+              passwd: $('#password').val()
             },
             success: function(data) {
                 if(data.success) {
-                  window.location = '/';
+                  window.location = '/admin/panel';
                 } else if(data.error) {
                   var $box = $('.alert-box');
                   $box.html('<span>error: </span>' + data.error);

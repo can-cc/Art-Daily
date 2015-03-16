@@ -1,5 +1,13 @@
-var express = require('express')
-var app = express()
+var express = require('express'),
+    db = require('./db'),
+    app = express(),
+    path = require('path'),
+    bodyParser = require('body-parser'),
+    multer = require('multer'),
+    session = require('express-session'),
+    setting = require('./setting'),
+    RedisStore = require('connect-redis')(session)
+
 
 //Route
 var middleware =require('./routes/middleware')
@@ -9,12 +17,22 @@ var admin = require('./routes/admin')
 var api_article = require('./routes/api_article')
 
 app.use(express.static('www'))
+app.use(bodyParser.json()); // for parsing application/json
+app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+app.use(multer()); // for parsing multipart/form-data
 app.set('views', path.join(__dirname, 'views'))
-app.set('view engine', 'ejs');
+app.set('view engine', 'ejs')
+app.use(session({
+    resave: true,
+    store: new RedisStore(),
+    secret: setting.cookieSecret,
+    key: 'esid',
+    saveUninitialized:false
+}));
 
 app.use(middleware)
 app.use('/', home)
-//app.use('/admin', admin)
+app.use('/admin', admin)
 app.use('/article', api_article) 
 
 var server = app.listen(3000, function () {
