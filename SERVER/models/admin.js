@@ -55,7 +55,7 @@ Admin.get = function(admin_name, callback) {
 //         console.log(keys)
 //         if(keys) {
 //             var rst = keys.map(function(field) {
-//                 db.hdel('AD_Admin' + admin_name, field, function(err, reply) {
+//                 db.hdel('AD_Admin:' + admin_name, field, function(err, reply) {
 //                     if(err) return callback(err)
 //                     return reply
 //                 })
@@ -69,10 +69,13 @@ Admin.get = function(admin_name, callback) {
 //     })
 // }
 
-
-
-
-
+//Todo: you know
+Admin.delete = function(admin_name, callback) {
+    db.hdel('AD_Admin:' + admin_name, 'passwd', 'admin_name', function(err, reply) {
+        if(err) return callback(err) 
+        callback(null, reply)
+    })
+}
 
 
 
