@@ -11,25 +11,38 @@ var Article = function (article) {
 
 module.exports = Article
 
-Article.gen_id = function (callback) {
-    db.incr('article_count', function(err, id) {
-        callback(err, id)
+// Article.gen_id = function (callback) {
+//     db.incr('article_count', function(err, id) {
+//         callback(err, id)
+//     })
+// }
+
+Article.prototype.save = function (callback) {
+    var article = {
+        title: this.title,
+        context: this.context,
+        date: this.date,
+        lable: this.lable
+    }
+    db.incr('article_count', function (err, id) {
+        article['id'] = id
+        console.log(article)
+        db.zadd('AD_Article', id, JSON.stringify(article), function(err, reply) {
+            if(err) return callback(err)
+            if(reply) callback(null, id)
+            else callback(null, false)
+        })
     })
 }
 
-Article.prototype.save = function (callback) {
+Article.prototype.edit = function(callback) {
     var article = {
         id: this.id,
         title: this.title,
         context: this.context,
         date: this.date,
         lable: this.lable
-    }
-
-    db.zadd('AD_Article', article, function(err, reply) {
-        if(err) return callback(err)
-        if(reply) callback(null, true)
-    })
+   } 
 }
 
 // Article.prototype.fill_id = function (id) {
@@ -39,9 +52,9 @@ Article.prototype.save = function (callback) {
 Article.get_one = function(id, callback) {
     db.zrangebyscore('AD_Article', id, id, function (err, reply) {
         if(err) return callback(err)
-        if(reply) {
+        if(reply.length) {
             var article = JSON.parse(reply)
-            callback(null, new Article(article))
+            callback(null, article)
         } else {
             callback(null, null)
         }
@@ -50,11 +63,11 @@ Article.get_one = function(id, callback) {
 
 //range by sorted
 Article.get_range = function(start, end, callback) {
-    db.zrevrange(start, end, function(err, reply) {
-        if(err) callback(err)
+    db.zrevrange('AD_Article', start, end, function(err, reply) {
+        if(err) return callback(err)
         if(reply) {
             callback(null, reply.map(function (article) {
-               return new Article(JSON.parse(article))
+               return JSON.parse(article)
             }))
         } else {
             callback(null, null)

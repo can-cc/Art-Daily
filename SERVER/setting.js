@@ -5,7 +5,8 @@ var setting = {
     db_port: 6379,
     db_database: 'Art_daily',
     db_options: {},
-    cookieSecret: 'ixM-Art-_Daily'
+    cookieSecret: 'ixM-Art-_Daily',
+    page_show: 10
 }
 
 module.exports = setting
