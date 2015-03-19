@@ -35,15 +35,15 @@ Article.prototype.save = function (callback) {
     })
 }
 
-Article.prototype.edit = function(callback) {
-    var article = {
-        id: this.id,
-        title: this.title,
-        context: this.context,
-        date: this.date,
-        lable: this.lable
-   } 
-}
+// Article.prototype.edit = function(callback) {
+//     var article = {
+//         id: this.id,
+//         title: this.title,
+//         context: this.context,
+//         date: this.date,
+//         lable: this.lable
+//     }
+// }
 
 // Article.prototype.fill_id = function (id) {
 //     this.id = id

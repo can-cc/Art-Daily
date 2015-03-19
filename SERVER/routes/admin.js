@@ -1,19 +1,13 @@
 var express = require('express'),
     router = express.Router(),
-    Admin = require('../models/admin')
-
+    Admin = require('../models/admin'),
+    setting = require('../setting'),
+    Article = require('../models/article')
 
 router.get('/', function(req, res) {
   res.send('Welcome to Art-Daily server, but you can not do anything.')
 })
 
-router.get('/panel', function(req, res, next) {
-  if (req.session.admin) {
-    res.render('panel', {
-      admin: req.session.admin
-    })
-  } else res.redirect('/admin/login.html')
-})
 
 
 router.post('/login', function(req, res, next) {
@@ -34,5 +28,34 @@ router.post('/logout', function(req, res, next) {
     res.redirect('/login.html')
   })
 })
+
+router.post('/ulimg', function(req, res, next) {
+    console.log(req.files);
+    res.end("File uploaded.");
+    
+})
+
+router.get('/panel', function(req, res, next) {
+  if (req.session.admin) {
+
+    Article.get_range(0, setting.page_show, function (err, reply) {
+        if (err){ 
+            res.status(500).send({err: 'sorry, there is a error!'})
+        } else {
+            res.render('panel', {
+                articles: reply
+            })
+        }
+    })
+  } else res.redirect('/admin/login.html')
+})
+
+router.get('/editor', function(req, res, next) {
+    if (req.session.admin) {
+        res.render('editor')
+    } else res.redirect('/admin/login.html')
+})
+
+
 
 module.exports = router

@@ -1,0 +1,29 @@
+<html>
+  
+  <head>
+    <title>Editor</title>
+  </head>
+  
+  <body>
+    <div>
+      <form id="uploadForm" enctype="multipart/form-data" action="/admin/ulimg" method="post">
+        <input type="file" name="userPhoto" />
+        <input type="submit" value="Upload Image" name="submit">
+      </form>
+    </div>
+    
+    <button id="big-bad-bold-button">B</button>
+    <div id="editor">
+<p>sdesdssssssssssssssssss</p>
+    </div>
+
+    <script src="/scripts/lib/jquery.js"></script>
+    <script src="/scripts/lib/aloha.min.js"></script>
+    <script>
+      aloha.dom.query('#editor', document).forEach(aloha);
+      $('#big-bad-bold-button').on('click', aloha.ui.command(aloha.ui.commands.bold))
+    </script>
+  </body>
+  
+</html>
+

@@ -6,7 +6,8 @@ var express = require('express'),
     multer = require('multer'),
     session = require('express-session'),
     setting = require('./setting'),
-    RedisStore = require('connect-redis')(session)
+    RedisStore = require('connect-redis')(session),
+    multer  = require('multer')
 
 
 //Route
@@ -17,8 +18,9 @@ var admin = require('./routes/admin')
 var api_article = require('./routes/api_article')
 
 app.use(express.static('www'))
-app.use(bodyParser.json()); // for parsing application/json
-app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+app.use(express.static('img'))
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use(multer()); // for parsing multipart/form-data
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
@@ -28,12 +30,13 @@ app.use(session({
     secret: setting.cookieSecret,
     key: 'esid',
     saveUninitialized:false
-}));
+}))
+app.use(multer({ dest: './img/'}))
 
 app.use(middleware)
 app.use('/', home)
 app.use('/admin', admin)
-app.use('/article', api_article) 
+app.use('/article', api_article)
 
 var server = app.listen(3000, function () {
   var host = server.address().address
