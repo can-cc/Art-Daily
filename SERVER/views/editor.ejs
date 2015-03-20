@@ -7,8 +7,8 @@
   <body>
     <div>
       <form id="uploadForm" enctype="multipart/form-data" action="/admin/ulimg" method="post">
-        <input type="file" name="userPhoto" />
-        <input type="submit" value="Upload Image" name="submit">
+        <input type="file" name="userPhoto" id="file"/>
+        <input type="submit" value="Upload Image" name="submit" id="ulbutton">
       </form>
     </div>
     
@@ -19,10 +19,7 @@
 
     <script src="/scripts/lib/jquery.js"></script>
     <script src="/scripts/lib/aloha.min.js"></script>
-    <script>
-      aloha.dom.query('#editor', document).forEach(aloha);
-      $('#big-bad-bold-button').on('click', aloha.ui.command(aloha.ui.commands.bold))
-    </script>
+    <script src="/scripts/editor.js"></script>
   </body>
   
 </html>

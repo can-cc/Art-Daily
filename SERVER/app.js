@@ -6,8 +6,7 @@ var express = require('express'),
     multer = require('multer'),
     session = require('express-session'),
     setting = require('./setting'),
-    RedisStore = require('connect-redis')(session),
-    multer  = require('multer')
+    RedisStore = require('connect-redis')(session)
 
 
 //Route
@@ -21,7 +20,6 @@ app.use(express.static('www'))
 app.use(express.static('img'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
-app.use(multer()); // for parsing multipart/form-data
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 app.use(session({
@@ -31,7 +29,15 @@ app.use(session({
     key: 'esid',
     saveUninitialized:false
 }))
-app.use(multer({ dest: './img/'}))
+app.use(multer({
+    dest: './img/',
+    onFileUploadStart: function(file, req, res) {
+        console.log(file.fieldname + ' uploaded to  ' + file.path)
+    },
+    onFileUploadComplete: function(file, req, res) {
+        console.log(file.fieldname + ' uploaded to  ' + file.path)
+    }
+}))
 
 app.use(middleware)
 app.use('/', home)
