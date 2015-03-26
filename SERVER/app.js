@@ -17,7 +17,7 @@ var admin = require('./routes/admin')
 var api_article = require('./routes/api_article')
 
 app.use(express.static('www'))
-app.use(express.static('img'))
+app.use(express.static('img', 'img'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.set('views', path.join(__dirname, 'views'))
@@ -31,6 +31,9 @@ app.use(session({
 }))
 app.use(multer({
     dest: './img/',
+    rename: function (fieldname, filename) {
+        return  Date.now()
+    },
     onFileUploadStart: function(file, req, res) {
         console.log(file.fieldname + ' uploaded to  ' + file.path)
     },

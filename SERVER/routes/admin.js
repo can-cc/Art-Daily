@@ -30,9 +30,13 @@ router.post('/logout', function(req, res, next) {
 })
 
 router.post('/ulimg', function(req, res, next) {
-    console.log(req.files);
-    res.end("File uploaded.");
-    
+    //console.log(req.files);
+    var keys = []
+    for (var key in req.files) {
+        keys.push(key)
+    }
+    //I only want first element, may be can opti..
+    res.end(req.files[keys[0]].path || {Error: 'unkown!'})
 })
 
 router.get('/panel', function(req, res, next) {
