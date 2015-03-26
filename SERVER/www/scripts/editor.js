@@ -40,10 +40,11 @@
             contentType: false,
             data: data,
             success: function(data) {
-                $('<img src="/' + data.src + '" class="img-responsive" alt="Responsive image">').appendTo('body')
-                $('.cover-img').html($('<img src="/' + data.src + '" class="img-responsive" alt="Responsive image">'))
-                $('<img src="/' + data.src + '" class="img-responsive" alt="Responsive image">').appendTo('.cover-img')
-                $('body').append($('<img src="' + data.src + '" class="img-responsive" alt="Responsive image">'))
+                //$('<img src="/' + data.src + '" class="img-responsive" alt="Responsive image">').appendTo('body')
+                $('.cover-field').css('height', 'auto')
+                $('.cover-img-container').html($('<img src="/' + data.src + '" class="img-responsive center-block cover-img" alt="Responsive image">'))
+                //$('<img src="/' + data.src + '" class="img-responsive" alt="Responsive image">').appendTo('.cover-img')
+               // $('body').append($('<img src="' + data.src + '" class="img-responsive" alt="Responsive image">'))
             },
             error: function(data) {
                 alert('error!')

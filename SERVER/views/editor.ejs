@@ -9,58 +9,89 @@
 </head>
 
 <body>
-<div class="upload-cover"><span class="glyphicon glyphicon-blackboard" aria-hidden="true"></span><p>Cover Img</p></div>
+    <div class="upload-cover"><span class="glyphicon glyphicon-blackboard" aria-hidden="true"></span>
+        <p>Cover</p>
+    </div>
+    <div class="upload-img-icon"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
+        <p>Image</p>
+    </div>
     <br/>
 
-<div class="container">
+    <div class="container">
 
-    <div class="jumbotron art-container">
-<div class="page-header">
-  <h1>Editor <small>write the daily!</small></h1>
-</div>
-        <div class="container">
-            <div>
-                <form id="uploadForm" enctype="multipart/form-data" action="/admin/ulimg" method="post">
-                    <input type="file" name="userPhoto" id="file" />
-                    <input type="submit" value="Upload Image" name="submit" id="ulbutton">
-                </form>
+        <div class="jumbotron art-container">
+            <div class="page-header">
+                <h1>Editor <small>write the daily!</small></h1>
             </div>
+            <div class="container">
+                <div>
+                    <form id="uploadForm" enctype="multipart/form-data" action="/admin/ulimg" method="post">
+                        <input type="file" name="userPhoto" id="file" />
+                        <input type="submit" value="Upload Image" name="submit" id="ulbutton">
+                    </form>
+                </div>
 
-           
 
 
-          
+
+
                 <input type="text" name="art-title" class="title-input" maxlength="14" autofocus placeholder="Title" />
                 <br/>
                 <br/>
-                   <div class="cover-img"></div>
-       
-            <div id="editor">
-                <p>sdesdssssssssssssssssss</p>
+                <div class="cover-field">
+                    <br/>
+                    <div class="container cover-img-container"></div>
+                    <br/>
+                </div>
+
+                <div id="editor">
+                    <p>sdesdssssssssssssssssss</p>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Upload Cover Image</h4>
-      </div>
-      <div class="modal-body">
-        <div class="form-group form-inline">
-          <input type="file" id="cover-img-file"> 
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Upload Cover Image</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group form-inline">
+                        <input type="file" id="cover-img-file">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary cover-upload-button">Upload</button>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary cover-upload-button">Save changes</button>
-      </div>
     </div>
-  </div>
-</div>
+
+<div class="modal fade" id="upload-img-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Upload Image</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group form-inline">
+                        <input type="file" id="upload-img-file">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary image-upload-button">Upload</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <script src="/scripts/lib/jquery.js"></script>
