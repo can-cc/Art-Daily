@@ -3,12 +3,17 @@
     margin-left: auto;
     margin-right: auto;
 }
-.cover-img {}
+.cover-img {
+   
+}
 
-.art-input {
-    border: 0;
-    outline: 0;
-    background: transparent;
-    border-bottom: 2px solid black;
-    width: 20px;
+.title-input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #000000;
+    outline: none;
+    padding-bottom: 5px;
+   width: 100%;
+    text-align: center;
+    font-size: 300%;
 }

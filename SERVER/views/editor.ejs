@@ -2,21 +2,37 @@
   
   <head>
     <title>Editor</title>
+  
+    <link rel="stylesheet" href="/styles/editor.css" />
   </head>
   
   <body>
-    <div>
-      <form id="uploadForm" enctype="multipart/form-data" action="/admin/ulimg" method="post">
-        <input type="file" name="userPhoto" id="file"/>
-        <input type="submit" value="Upload Image" name="submit" id="ulbutton">
-      </form>
+<form>
+ <input type="text" name="art-title" class="art-input"  maxlength="14" autofocus placeholder="Title"/>
+</form>
+    <div class="art-container">
+      <div>
+        <form id="uploadForm" enctype="multipart/form-data" action="/admin/ulimg" method="post">
+          <input type="file" name="userPhoto" id="file"/>
+          <input type="submit" value="Upload Image" name="submit" id="ulbutton">
+        </form>
+      </div>
+      
+      <button id="big-bad-bold-button">B</button>
+
+
+      <div class="form">
+        <input type="text" name="art-title" class="title-input"  maxlength="14" autofocus placeholder="Title"/>
+        <div class="cover-img">
+          <input type="file" name="userPhoto" id="file" placeholder="Cover"/>
+          <input type="submit" value="Upload" id="cover-img-submit">
+        </div>
+      </div>
+      <div id="editor">
+        <p>sdesdssssssssssssssssss</p>
+      </div>
     </div>
     
-    <button id="big-bad-bold-button">B</button>
-    <div id="editor">
-<p>sdesdssssssssssssssssss</p>
-    </div>
-
     <script src="/scripts/lib/jquery.js"></script>
     <script src="/scripts/lib/aloha.min.js"></script>
     <script src="/scripts/editor.js"></script>
