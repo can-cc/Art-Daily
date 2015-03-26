@@ -22,4 +22,8 @@
             }
         })
     })
+
+    $('.upload-cover').click(function () {
+        $('#myModal').modal()
+    })
 }())
