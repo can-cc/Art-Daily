@@ -36,7 +36,8 @@ router.post('/ulimg', function(req, res, next) {
         keys.push(key)
     }
     //I only want first element, may be can opti..
-    res.end(req.files[keys[0]].path || {Error: 'unkown!'})
+    res.send( {src: req.files[keys[0]].path} || {Error: 'unkown!'}) 
+    res.end()
 })
 
 router.get('/panel', function(req, res, next) {
