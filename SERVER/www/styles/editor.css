@@ -1,19 +1,43 @@
-.art-container {
-    width: 57rem;
+v.art-container {
+    width: 80rem;
     margin-left: auto;
     margin-right: auto;
 }
-.cover-img {
-   
-}
-
 .title-input {
     background-color: transparent;
     border: none;
     border-bottom: 2px solid #000000;
     outline: none;
     padding-bottom: 5px;
-   width: 100%;
+    width: 100%;
     text-align: center;
     font-size: 300%;
+}
+
+.cover-img {
+    -moz-border-radius: 0.2em;
+    -webkit-border-radius: 0.2em;
+    border-radius: 0.2em;
+    height: 40px;
+    background: #E1E1E1;
+}
+
+.upload-cover {
+   color: #666666;
+   position: absolute;
+   top: 50rem;
+   left: 50rem;
+   z-index: 10;
+}
+
+.upload-cover span {
+   font-size: 600%;
+}
+
+.upload-cover p {
+   font: bold 12px/30px arial,sans-serif;
+   font-weight: 900;
+   font-size: 130%;
+   position: fixed;
+   text-align: center;
 }
