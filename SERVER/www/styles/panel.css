@@ -6,6 +6,46 @@
    
 }
 
-.list-group li .atc-item{
-   height: 5rem;
+
+.atc-del {
+   position: relative;
+   height: 100%;
+   top: 0.4rem;
+   left: 50%;
+}
+
+.glyphicon-remove {
+   font-size: 400%;
+}
+
+.cover-thum {
+   background-color: #000000;
+}
+
+.list-group-item {
+   padding: 0px 0px;
+}
+
+.atc-item{
+   height: 15rem;
+}
+
+
+.atc-context {
+   height: 50%;
+   word-wrap: break-word; 
+   word-break: normal; 
+   overflow: hidden;
+}
+
+.cover {
+   height: inherit;
+}
+
+.thumbnail {
+   height: inherit;
+}
+
+.thumbnail img {
+   height: inherit;
 }
