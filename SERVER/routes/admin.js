@@ -62,5 +62,29 @@ router.get('/editor', function(req, res, next) {
 })
 
 
+/*
+ * admin post article
+ */
+router.post('/article', function(req, res, next) {
+   var article_json = {
+       title: req.body.title,
+       cover_src: req.body.cover_src,
+       context: req.body.context,
+       date: new Date().toJSON(),
+       //lable:Just [](null) now ,becasue I think needn't now
+       //todo: add it if nessesary
+       lable: []
+   }    
+    //save
+    var article = new Article(article_json)
+    article.save(function (err, callback) {
+        if( err || !callback)
+            res.sendStatus(500).send({err: 'sorry, there is a error!'}) 
+        else
+            res.send({success: 'save successful!'})
+        res.end()
+    })
+})
+
 
 module.exports = router

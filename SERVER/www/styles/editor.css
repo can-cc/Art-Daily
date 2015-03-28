@@ -25,6 +25,13 @@ v.art-container {
    position: relative;
 }
 
+.cover-img-container p {
+   position: relative;
+   text-align: center;
+   font-size: 500%;
+   color: #C3C3C3;
+}
+
 .upload-cover {
    color: #666666;
    position: absolute;
@@ -54,10 +61,30 @@ v.art-container {
 }
 
 .upload-img-icon span {
-   font-size: 520%;
+   font-size: 600%;
 }
 
 .upload-img-icon p {
+   font: bold 12px/30px arial,sans-serif;
+   font-weight: 900;
+   font-size: 130%;
+   position: relative;
+   text-align: center;
+}
+
+.submit-icon {
+   color: #666666;
+   position: fixed;
+   top: 45rem;
+   right: 1.5rem;
+   z-index: 10;
+}
+
+.submit-icon span {
+   font-size: 520%;
+}
+
+.submit-icon p {
    font: bold 12px/30px arial,sans-serif;
    font-weight: 900;
    font-size: 130%;
@@ -70,4 +97,15 @@ v.art-container {
    max-height: 100%;
    max-width: 100%;
    display: block;
+}
+
+#editor {
+   weight: 100%;
+   color: #000000;
+   background-color: #DCDCDC;
+   word-wrap: break-word; 
+   word-break: normal; 
+   -moz-border-radius: 0.5em;
+   -webkit-border-radius: 0.5em;
+   border-radius: 0.5em;
 }

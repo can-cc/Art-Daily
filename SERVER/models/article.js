@@ -4,6 +4,7 @@ var db = require('../db'),
 var Article = function (article) {
     this.id = article.id
     this.title = article.title
+    this.cover_src = article.cover_src
     this.context = article.context
     this.date = article.date
     this.label = article.label || {}
@@ -11,15 +12,15 @@ var Article = function (article) {
 
 module.exports = Article
 
-// Article.gen_id = function (callback) {
-//     db.incr('article_count', function(err, id) {
-//         callback(err, id)
-//     })
-// }
-
+/*
+ * callback(err, [true, false])
+ * successful; ture
+ * fail: false
+ */
 Article.prototype.save = function (callback) {
     var article = {
         title: this.title,
+        cover_src: this.cover_src,
         context: this.context,
         date: this.date,
         lable: this.lable
@@ -35,19 +36,6 @@ Article.prototype.save = function (callback) {
     })
 }
 
-// Article.prototype.edit = function(callback) {
-//     var article = {
-//         id: this.id,
-//         title: this.title,
-//         context: this.context,
-//         date: this.date,
-//         lable: this.lable
-//     }
-// }
-
-// Article.prototype.fill_id = function (id) {
-//     this.id = id
-// }
 
 Article.get_one = function(id, callback) {
     db.zrangebyscore('AD_Article', id, id, function (err, reply) {

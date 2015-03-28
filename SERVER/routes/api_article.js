@@ -41,7 +41,7 @@ router.get('/page/:page', function(req, res) {
     })
 })
 
-router.post('/', function(req, res) {
+router.post('/', function(req, res, next) {
     
 })
 

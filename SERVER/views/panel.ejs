@@ -2,88 +2,38 @@
   
   <head>
     <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="/styles/lib/foundation.min.css">
+    <title>Admin Panel</title>
+ <link rel="stylesheet" href="/styles/lib/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles/panel.css" />
+
   </head>
   
   <body>
-    
-    <div class="row">
-      <div class="large-3 columns">
-        <h1><img src="http://placehold.it/400x100&text=Logo"/></h1>
-      </div>
-      <div class="large-9 columns">
-        <ul class="inline-list right">
-          <li><a href="#">Section 1</a></li>
-          <li><a href="#">Section 2</a></li>
-          <li><a href="#">Section 3</a></li>
-          <li><a href="#">Section 4</a></li>
-        </ul>
-      </div>
-    </div>
-    
-    <div class="row">
-      
-      
-      <div class="large-9 push-3 columns">
-        
-        <table role="grid"  summary="Schedule for Route 7 going downtown. Service begins 
-at 4:00 AM and ends at midnight. Intersections are listed in the top row. 
-Find the intersection closest to your starting point or destination, then read 
-down that column to find out what time the bus leaves that intersection.">
-          <thead>
-            <tr>
-              <th width="400">Articles:</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% for(var i=0; i<articles.length; i++) {%>
-               <tr>
-                 <td>
-                   <%= articles[i].title  %>
-                 </td>
-               </tr>
-             <% } %>
-          </tbody>
-        </table>
-      </div>
-      
-      
-      <div class="large-3 pull-9 columns">
-        <ul class="side-nav">
-          <li><a href="#">Section 1</a></li>
-          <li><a href="#">Section 2</a></li>
-          <li><a href="#">Section 3</a></li>
-          <li><a href="#">Section 4</a></li>
-          <li><a href="#">Section 5</a></li>
-          <li><a href="#">Section 6</a></li>
-        </ul>
-        <p><img src="http://placehold.it/320x240&text=Ad"/></p>
+    <div class="container">
+      <br/>
+      <div class="jumbotron">
+       <div class="page-header">
+         <h1>Admin Panle<br/><small>Be careful!</small></h1>
+       </div>
+
+       <div>
+         <ul class="list-group">
+           <li class="list-group-item"><div class="atc-item">sdsd</div></li>
+           <li class="list-group-item"><div class="atc-item">sdsd</div></li>
+           <li class="list-group-item"><div class="atc-item">sdsd</div></li>
+           <li class="list-group-item"><div class="atc-item">sdsd</div></li>
+           <li class="list-group-item"><div class="atc-item">sdsd</div></li>
+</ul>
+       </div>
       </div>
     </div>
     
-    <footer class="row">
-      <div class="large-12 columns">
-        <hr/>
-        <div class="row">
-          <div class="large-6 columns">
-            <p>&copy; Copyright no one at all. Go to town.</p>
-          </div>
-          <div class="large-6 columns">
-            <ul class="inline-list right">
-              <li><a href="#">Section 1</a></li>
-              <li><a href="#">Section 2</a></li>
-              <li><a href="#">Section 3</a></li>
-              <li><a href="#">Section 4</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </footer>
   </body>
   
-  <script src="/scripts/lib/jquery.js"></script>
-  <script src="/scripts/lib/foundation.min.js"></script>
+    <script src="/scripts/lib/jquery.js"></script>
+    <script src="/scripts/lib/bootstrap.min.js"></script>
+    <script src="/scripts/lib/aloha.min.js"></script>
+    <script src="/scripts/editor.js"></script>
   
 </html>
 
