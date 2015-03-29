@@ -1,9 +1,9 @@
 .list-group {
-  
+  background-color: #EEE;
 }
 
 .list-group li {
-   
+   background-color: #EEE;
 }
 
 
@@ -15,7 +15,10 @@
 }
 
 .glyphicon-remove {
-   font-size: 400%;
+   position: relative;
+   left: 62.5%;
+   top: 0.4rem;
+   color: #C3C3C3
 }
 
 .cover-thum {
@@ -32,20 +35,60 @@
 
 
 .atc-context {
-   height: 50%;
+   position: relative;
+   height: 100%;
    word-wrap: break-word; 
    word-break: normal; 
    overflow: hidden;
 }
 
+.atc-text {
+   position: relative;
+   width: 98%;
+}
+
 .cover {
+   background-color: #EEE;
    height: inherit;
 }
 
 .thumbnail {
+   background-color: #EEE;
    height: inherit;
 }
 
 .thumbnail img {
    height: inherit;
+}
+
+hr {
+   width: 98%;
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+.page {
+   position: relative;
+   left: 37%;
+   /* width: 40%; */
+   /*  margin: 0 auto; */
+}
+
+
+.editor {
+   position: fixed;
+   right: 2rem;
+   top: 4rem;
+}
+
+.editor span{
+   font-size: 350%;
+}
+
+.editor p {
+   font-size: 200%;
 }
