@@ -26,24 +26,33 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         // Ionic uses AngularUI Router which uses the concept of states
         // Learn more here: https://github.com/angular-ui/ui-router
         // Set up the various states which the app can be in.
-        // Each state's controller can be found in controllers.js
-        $stateProvider
-            .state('app', {
-                url: "/app",
-                abstract: true,
-                templateUrl: "templates/menus.html",
-                controller: 'AppCtrl'
-            })
-            .state('app.daily', {
-                    url: "/daily",
-                    views: {
-                        'menuContent': {
-                            templateUrl: "templates/daily.html",
-                            controller: 'DailyCtrl'
-                        }
-                    }
-                })
-                   
+    // Each state's controller can be found in controllers.js
+    $stateProvider
+        .state('app', {
+            url: "/app",
+            abstract: true,
+            templateUrl: "templates/menus.html",
+            controller: 'AppCtrl'
+        })
+        .state('app.daily', {
+            url: "/daily",
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/daily.html",
+                    controller: 'DailyCtrl'
+                }
+            }
+        })
+        .state('app.daily-datail', {
+            url: '/daily/:DailyId',
+            views: {
+                'menuContent': {
+                    templateUrl: 'templates/daily_datail.html',
+                    controller: 'DDatailCtrl'
+                }
+            }
+        })
+    
     
     // if none of the above states are matched, use this as the fallback
 $urlRouterProvider.otherwise('/app/daily');

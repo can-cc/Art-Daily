@@ -6,8 +6,11 @@
 </ion-nav-bar>
 
   <ion-content class="has-header">
+    
+
+
     <ion-list>
-      <ion-item class="item item-thumbnail-left" ng-repeat="article in articles" type="item-text-wrap" href="">
+      <ion-item class="item item-thumbnail-left" ng-repeat="article in articles" type="item-text-wrap" href="#/app/daily/{{article.id}}">
 
         <img ng-src="http://10.42.0.30:3000{{article.cover_src}}">
         <h2>{{article.title}}<h2>
