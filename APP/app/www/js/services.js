@@ -8,7 +8,7 @@ angular.module('starter.services', [])
             $http.get('http://' + setting.server_domain + '/article/page/' + page).success(function(data) {
                 var articles = []
                 for (var i = 0; i < data.rst.length; i++) {
-                    articles.push(new Article(data.objects[i]))
+                    articles.push(new Article(data.rst[i]))
                 }
                 deferred.resolve(articles)
             })
@@ -17,8 +17,8 @@ angular.module('starter.services', [])
         },
         
         getOne: function(id) {
-            var deferred = $q.deferred()
-             $http.get(setting.server_damain + '/article/' + id).success(function(data) {
+            var deferred = $q.defer()
+             $http.get('http://' + setting.server_domain + '/article/' + id).success(function(data) {
                 var article = new Article(data)                
                 deferred.resolve(article)
             })

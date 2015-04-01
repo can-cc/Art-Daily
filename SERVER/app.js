@@ -1,4 +1,5 @@
 var express = require('express'),
+    cors = require('cors'),
     db = require('./db'),
     app = express(),
     path = require('path'),
@@ -8,6 +9,7 @@ var express = require('express'),
     setting = require('./setting'),
     RedisStore = require('connect-redis')(session)
 
+app.use(cors())
 
 //Route
 var middleware =require('./routes/middleware')

@@ -1,1 +1,10 @@
 /* Empty. Add your own CSS if you like */
+.atc-title {
+   font-size: 150%;
+}
+
+.item h2 {
+   position: relative;
+   top: 0.5rem;;
+   font-size: 130%;
+}

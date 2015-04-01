@@ -1,0 +1,23 @@
+<ion-view title="首页">
+<ion-nav-bar class="bar-positive" align-title="left">
+  <ion-nav-buttons side="left">
+   <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+</ion-nav-bar>
+
+  <ion-content class="has-header">
+    <ion-list>
+      <ion-item class="item item-thumbnail-left" ng-repeat="article in articles" type="item-text-wrap" href="">
+
+        <img ng-src="http://10.42.0.30:3000{{article.cover_src}}">
+        <h2>{{article.title}}<h2>
+
+
+
+
+      </ion-item>
+    </ion-list>
+ 
+
+  </ion-content>
+</ion-view>
