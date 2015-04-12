@@ -3,6 +3,7 @@ angular.module('starter.controllers', [])
 .controller('DDatailCtrl', function($scope, $stateParams, ArticleManager) {
     console.log('haha')
     ArticleManager.getOne($stateParams.DailyId).then(function(article){
+      console.log('debug', article);
         $scope.article = article
     })
 })

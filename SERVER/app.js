@@ -7,7 +7,7 @@ var express = require('express'),
     multer = require('multer'),
     session = require('express-session'),
     setting = require('./setting'),
-    RedisStore = require('connect-redis')(session)
+    RedisStore = require('connect-redis')(session);
 
 app.use(cors())
 
